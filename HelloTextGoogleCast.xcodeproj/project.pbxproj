@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC077642189084BA00577499 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC077641189084BA00577499 /* GoogleCast.framework */; };
 		CCC226B7188726D700EFA0B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC226B6188726D700EFA0B9 /* Foundation.framework */; };
 		CCC226B9188726D700EFA0B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC226B8188726D700EFA0B9 /* CoreGraphics.framework */; };
 		CCC226BB188726D700EFA0B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC226BA188726D700EFA0B9 /* UIKit.framework */; };
@@ -28,6 +27,9 @@
 		CCC226F4188726F200EFA0B9 /* icon-cast-identified.png in Resources */ = {isa = PBXBuildFile; fileRef = CCC226F0188726F200EFA0B9 /* icon-cast-identified.png */; };
 		CCC226F5188726F200EFA0B9 /* icon-cast-identified@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCC226F1188726F200EFA0B9 /* icon-cast-identified@2x.png */; };
 		CCC226F81887273200EFA0B9 /* HTGCTextChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC226F71887273200EFA0B9 /* HTGCTextChannel.m */; };
+		CCE5BD4A1970953B00016BAB /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD491970953B00016BAB /* GoogleCast.framework */; };
+		CCE5BD4C1970954300016BAB /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD4B1970954300016BAB /* MediaAccessibility.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CCE5BD4E1970954C00016BAB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD4D1970954C00016BAB /* CoreText.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,9 @@
 		CCC226F61887273200EFA0B9 /* HTGCTextChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTGCTextChannel.h; sourceTree = "<group>"; };
 		CCC226F71887273200EFA0B9 /* HTGCTextChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTGCTextChannel.m; sourceTree = "<group>"; };
 		CCC226F9188727CF00EFA0B9 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleCast.framework; path = "../../../../Downloads/GoogleCastFramework-2.0-Release/GoogleCast.framework"; sourceTree = "<group>"; };
+		CCE5BD491970953B00016BAB /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
+		CCE5BD4B1970954300016BAB /* MediaAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaAccessibility.framework; path = System/Library/Frameworks/MediaAccessibility.framework; sourceTree = SDKROOT; };
+		CCE5BD4D1970954C00016BAB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +81,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC077642189084BA00577499 /* GoogleCast.framework in Frameworks */,
+				CCE5BD4E1970954C00016BAB /* CoreText.framework in Frameworks */,
+				CCE5BD4C1970954300016BAB /* MediaAccessibility.framework in Frameworks */,
+				CCE5BD4A1970953B00016BAB /* GoogleCast.framework in Frameworks */,
 				CCC226B9188726D700EFA0B9 /* CoreGraphics.framework in Frameworks */,
 				CCC226BB188726D700EFA0B9 /* UIKit.framework in Frameworks */,
 				CCC226B7188726D700EFA0B9 /* Foundation.framework in Frameworks */,
@@ -118,6 +125,9 @@
 		CCC226B5188726D700EFA0B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CCE5BD4D1970954C00016BAB /* CoreText.framework */,
+				CCE5BD4B1970954300016BAB /* MediaAccessibility.framework */,
+				CCE5BD491970953B00016BAB /* GoogleCast.framework */,
 				CC077641189084BA00577499 /* GoogleCast.framework */,
 				CCC226F9188727CF00EFA0B9 /* GoogleCast.framework */,
 				CCC226B6188726D700EFA0B9 /* Foundation.framework */,
@@ -426,6 +436,7 @@
 					"$(inherited)",
 					.,
 					..,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloTextGoogleCast/HelloTextGoogleCast-Prefix.pch";
@@ -446,6 +457,7 @@
 					"$(inherited)",
 					.,
 					..,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloTextGoogleCast/HelloTextGoogleCast-Prefix.pch";

@@ -7,11 +7,7 @@ This Hello Text demo application shows how an iOS sender application can send an
 
 ## Setup Instructions
 * Get a Chromecast device and get it set up for development: https://developers.google.com/cast/docs/developers#Get_started
-* Host the receiver/receiver.html on your web server (You can use Google Drive to host your files: [https://googledrive.com/host/0B716ywBKT84AMXBENXlnYmJISlE/GoogleDriveHosting.html](https://googledrive.com/host/0B716ywBKT84AMXBENXlnYmJISlE/GoogleDriveHosting.html "Google Drive Hosting"))
-* Register an application on the Developers Console [http://cast.google.com/publish](http://cast.google.com/publish "Google Cast Developer Console"). Select the Custom Receiver option and specify the URL to where you are hosting the receiver.html file. You will get an App ID when you finish registering your application.
 * Setup the project dependencies in xCode
-* In HTGCViewController.m, replace @"YOUR\_APP\_ID\_HERE" with your app identifier from the Google Cast Developer Console. When you are done, it will look something like: 
-  * static NSString *const kReceiverAppID = @"1234ABCD";
 
 ## Documentation
 Google Cast iOS Sender Overview:  [https://developers.google.com/cast/docs/ios_sender](https://developers.google.com/cast/docs/ios_sender "Google Cast iOS Sender Overview")

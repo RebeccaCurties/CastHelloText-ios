@@ -15,7 +15,7 @@
 #import "HTGCViewController.h"
 #import "HTGCTextChannel.h"
 
-static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
+static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to host your own receiver
 
 @interface HTGCViewController () {
 
