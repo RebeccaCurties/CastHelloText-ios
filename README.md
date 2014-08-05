@@ -1,4 +1,4 @@
-# hello-cast-text-ios
+# HelloText-ios
 
 This Hello Text demo application shows how an iOS sender application can send and receive text messages.  For simplicity this app is not fully compliant with the UX Checklist. 
 
