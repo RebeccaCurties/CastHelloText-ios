@@ -30,6 +30,7 @@
 		CCE5BD4A1970953B00016BAB /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD491970953B00016BAB /* GoogleCast.framework */; };
 		CCE5BD4C1970954300016BAB /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD4B1970954300016BAB /* MediaAccessibility.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CCE5BD4E1970954C00016BAB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD4D1970954C00016BAB /* CoreText.framework */; };
+		EF87401719CCA4A300B7FBA3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF87401619CCA4A300B7FBA3 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		CCE5BD491970953B00016BAB /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
 		CCE5BD4B1970954300016BAB /* MediaAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaAccessibility.framework; path = System/Library/Frameworks/MediaAccessibility.framework; sourceTree = SDKROOT; };
 		CCE5BD4D1970954C00016BAB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		EF87401619CCA4A300B7FBA3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF87401719CCA4A300B7FBA3 /* SystemConfiguration.framework in Frameworks */,
 				CCE5BD4E1970954C00016BAB /* CoreText.framework in Frameworks */,
 				CCE5BD4C1970954300016BAB /* MediaAccessibility.framework in Frameworks */,
 				CCE5BD4A1970953B00016BAB /* GoogleCast.framework in Frameworks */,
@@ -125,6 +128,7 @@
 		CCC226B5188726D700EFA0B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF87401619CCA4A300B7FBA3 /* SystemConfiguration.framework */,
 				CCE5BD4D1970954C00016BAB /* CoreText.framework */,
 				CCE5BD4B1970954300016BAB /* MediaAccessibility.framework */,
 				CCE5BD491970953B00016BAB /* GoogleCast.framework */,
