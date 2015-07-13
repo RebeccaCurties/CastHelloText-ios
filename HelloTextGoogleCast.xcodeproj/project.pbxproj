@@ -13,8 +13,6 @@
 		CCC226C1188726D700EFA0B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCC226BF188726D700EFA0B9 /* InfoPlist.strings */; };
 		CCC226C3188726D700EFA0B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC226C2188726D700EFA0B9 /* main.m */; };
 		CCC226C7188726D700EFA0B9 /* HTGCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC226C6188726D700EFA0B9 /* HTGCAppDelegate.m */; };
-		CCC226CA188726D700EFA0B9 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCC226C8188726D700EFA0B9 /* Main_iPhone.storyboard */; };
-		CCC226CD188726D700EFA0B9 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCC226CB188726D700EFA0B9 /* Main_iPad.storyboard */; };
 		CCC226D0188726D700EFA0B9 /* HTGCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC226CF188726D700EFA0B9 /* HTGCViewController.m */; };
 		CCC226D2188726D700EFA0B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCC226D1188726D700EFA0B9 /* Images.xcassets */; };
 		CCC226D9188726D700EFA0B9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC226D8188726D700EFA0B9 /* XCTest.framework */; };
@@ -32,6 +30,7 @@
 		EAC89B891B54411F00FC33B3 /* icon-cast-identified.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC89B831B54411F00FC33B3 /* icon-cast-identified.png */; };
 		EAC89B8A1B54411F00FC33B3 /* icon-cast-identified@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC89B841B54411F00FC33B3 /* icon-cast-identified@2x.png */; };
 		EAC89B8B1B54411F00FC33B3 /* icon-cast-identified@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC89B851B54411F00FC33B3 /* icon-cast-identified@3x.png */; };
+		EAF2AE951B545B0B006A7C29 /* HelloTextStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF2AE941B545B0B006A7C29 /* HelloTextStoryboard.storyboard */; };
 		EF87401719CCA4A300B7FBA3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF87401619CCA4A300B7FBA3 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +56,6 @@
 		CCC226C4188726D700EFA0B9 /* HelloTextGoogleCast-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloTextGoogleCast-Prefix.pch"; sourceTree = "<group>"; };
 		CCC226C5188726D700EFA0B9 /* HTGCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTGCAppDelegate.h; sourceTree = "<group>"; };
 		CCC226C6188726D700EFA0B9 /* HTGCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTGCAppDelegate.m; sourceTree = "<group>"; };
-		CCC226C9188726D700EFA0B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		CCC226CC188726D700EFA0B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		CCC226CE188726D700EFA0B9 /* HTGCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTGCViewController.h; sourceTree = "<group>"; };
 		CCC226CF188726D700EFA0B9 /* HTGCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTGCViewController.m; sourceTree = "<group>"; };
 		CCC226D1188726D700EFA0B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -79,6 +76,7 @@
 		EAC89B831B54411F00FC33B3 /* icon-cast-identified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-identified.png"; sourceTree = "<group>"; };
 		EAC89B841B54411F00FC33B3 /* icon-cast-identified@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-identified@2x.png"; sourceTree = "<group>"; };
 		EAC89B851B54411F00FC33B3 /* icon-cast-identified@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-identified@3x.png"; sourceTree = "<group>"; };
+		EAF2AE941B545B0B006A7C29 /* HelloTextStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HelloTextStoryboard.storyboard; sourceTree = "<group>"; };
 		EF87401619CCA4A300B7FBA3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -151,8 +149,7 @@
 			children = (
 				CCC226C5188726D700EFA0B9 /* HTGCAppDelegate.h */,
 				CCC226C6188726D700EFA0B9 /* HTGCAppDelegate.m */,
-				CCC226C8188726D700EFA0B9 /* Main_iPhone.storyboard */,
-				CCC226CB188726D700EFA0B9 /* Main_iPad.storyboard */,
+				EAF2AE941B545B0B006A7C29 /* HelloTextStoryboard.storyboard */,
 				CCC226CE188726D700EFA0B9 /* HTGCViewController.h */,
 				CCC226CF188726D700EFA0B9 /* HTGCViewController.m */,
 				CCC226F61887273200EFA0B9 /* HTGCTextChannel.h */,
@@ -277,12 +274,11 @@
 			files = (
 				EAC89B871B54411F00FC33B3 /* icon-cast-connected@2x.png in Resources */,
 				EAC89B861B54411F00FC33B3 /* icon-cast-connected.png in Resources */,
-				CCC226CD188726D700EFA0B9 /* Main_iPad.storyboard in Resources */,
+				EAF2AE951B545B0B006A7C29 /* HelloTextStoryboard.storyboard in Resources */,
 				EAC89B8A1B54411F00FC33B3 /* icon-cast-identified@2x.png in Resources */,
 				EAC89B8B1B54411F00FC33B3 /* icon-cast-identified@3x.png in Resources */,
 				CCC226D2188726D700EFA0B9 /* Images.xcassets in Resources */,
 				EAC89B881B54411F00FC33B3 /* icon-cast-connected@3x.png in Resources */,
-				CCC226CA188726D700EFA0B9 /* Main_iPhone.storyboard in Resources */,
 				EAC89B891B54411F00FC33B3 /* icon-cast-identified.png in Resources */,
 				CCC226C1188726D700EFA0B9 /* InfoPlist.strings in Resources */,
 			);
@@ -335,22 +331,6 @@
 				CCC226C0188726D700EFA0B9 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		CCC226C8188726D700EFA0B9 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCC226C9188726D700EFA0B9 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		CCC226CB188726D700EFA0B9 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCC226CC188726D700EFA0B9 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		CCC226E1188726D700EFA0B9 /* InfoPlist.strings */ = {
