@@ -433,7 +433,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloTextGoogleCast/HelloTextGoogleCast-Prefix.pch";
 				INFOPLIST_FILE = "HelloTextGoogleCast/HelloTextGoogleCast-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -454,7 +454,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloTextGoogleCast/HelloTextGoogleCast-Prefix.pch";
 				INFOPLIST_FILE = "HelloTextGoogleCast/HelloTextGoogleCast-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
