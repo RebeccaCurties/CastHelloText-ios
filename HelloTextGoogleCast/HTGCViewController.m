@@ -51,8 +51,11 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
   self.navigationItem.rightBarButtonItem =
       [[UIBarButtonItem alloc] initWithCustomView:_chromecastButton];
 
+  //Establish filter criteria
+  GCKFilterCriteria *filterCriteria = [GCKFilterCriteria criteriaForAvailableApplicationWithID:kReceiverAppID];
+  
   //Initialize device scanner
-  self.deviceScanner = [[GCKDeviceScanner alloc] init];
+  self.deviceScanner = [[GCKDeviceScanner alloc] initWithFilterCriteria:filterCriteria];
   [self.deviceScanner addListener:self];
   [self.deviceScanner startScan];
 }
@@ -100,8 +103,8 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
   }
 }
 
-- (BOOL)isConnected {
-  return self.deviceManager.isConnected;
+- (BOOL)isDeviceConnected {
+  return self.deviceManager.connectionState == GCKConnectionStateConnected;
 }
 
 - (void)connectToDevice {
@@ -129,7 +132,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
     [_chromecastButton setImage:_btnImage forState:UIControlStateNormal];
     _chromecastButton.hidden = YES;
   } else {
-    if (self.deviceManager && self.deviceManager.isConnected) {
+    if (self.deviceManager && self.isDeviceConnected) {
       //Enabled state for cast button
       [_chromecastButton setImage:_btnImageSelected forState:UIControlStateNormal];
       [_chromecastButton setTintColor:[UIColor blueColor]];
@@ -147,7 +150,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
   NSLog(@"sending text %@", [messageTextField text]);
 
   //Show alert if not connected
-  if (!self.deviceManager || !self.deviceManager.isConnected) {
+  if (!self.deviceManager || !self.isDeviceConnected) {
     UIAlertView *alert =
         [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Not Connected", nil)
                                    message:NSLocalizedString(@"Please connect to Cast device", nil)
@@ -213,7 +216,12 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
     didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
                       sessionID:(NSString *)sessionID
             launchedApplication:(BOOL)launchedApplication {
-  NSLog(@"application has launched %hhd", launchedApplication);
+  if(launchedApplication){
+    NSLog(@"application has launched");
+  }
+  else{
+    NSLog(@"application has not launched");
+  }
 
   self.textChannel =
       [[HTGCTextChannel alloc] initWithNamespace:@"urn:x-cast:com.google.cast.sample.helloworld"];
