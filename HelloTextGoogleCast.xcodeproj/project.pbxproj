@@ -13,8 +13,6 @@
 		CCC226C1188726D700EFA0B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCC226BF188726D700EFA0B9 /* InfoPlist.strings */; };
 		CCC226C3188726D700EFA0B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC226C2188726D700EFA0B9 /* main.m */; };
 		CCC226C7188726D700EFA0B9 /* HTGCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC226C6188726D700EFA0B9 /* HTGCAppDelegate.m */; };
-		CCC226CA188726D700EFA0B9 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCC226C8188726D700EFA0B9 /* Main_iPhone.storyboard */; };
-		CCC226CD188726D700EFA0B9 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCC226CB188726D700EFA0B9 /* Main_iPad.storyboard */; };
 		CCC226D0188726D700EFA0B9 /* HTGCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC226CF188726D700EFA0B9 /* HTGCViewController.m */; };
 		CCC226D2188726D700EFA0B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCC226D1188726D700EFA0B9 /* Images.xcassets */; };
 		CCC226D9188726D700EFA0B9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC226D8188726D700EFA0B9 /* XCTest.framework */; };
@@ -22,14 +20,17 @@
 		CCC226DB188726D700EFA0B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC226BA188726D700EFA0B9 /* UIKit.framework */; };
 		CCC226E3188726D700EFA0B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCC226E1188726D700EFA0B9 /* InfoPlist.strings */; };
 		CCC226E5188726D700EFA0B9 /* HelloTextGoogleCastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC226E4188726D700EFA0B9 /* HelloTextGoogleCastTests.m */; };
-		CCC226F2188726F200EFA0B9 /* icon-cast-connected.png in Resources */ = {isa = PBXBuildFile; fileRef = CCC226EE188726F200EFA0B9 /* icon-cast-connected.png */; };
-		CCC226F3188726F200EFA0B9 /* icon-cast-connected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCC226EF188726F200EFA0B9 /* icon-cast-connected@2x.png */; };
-		CCC226F4188726F200EFA0B9 /* icon-cast-identified.png in Resources */ = {isa = PBXBuildFile; fileRef = CCC226F0188726F200EFA0B9 /* icon-cast-identified.png */; };
-		CCC226F5188726F200EFA0B9 /* icon-cast-identified@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCC226F1188726F200EFA0B9 /* icon-cast-identified@2x.png */; };
 		CCC226F81887273200EFA0B9 /* HTGCTextChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC226F71887273200EFA0B9 /* HTGCTextChannel.m */; };
 		CCE5BD4A1970953B00016BAB /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD491970953B00016BAB /* GoogleCast.framework */; };
 		CCE5BD4C1970954300016BAB /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD4B1970954300016BAB /* MediaAccessibility.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CCE5BD4E1970954C00016BAB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD4D1970954C00016BAB /* CoreText.framework */; };
+		EAC89B861B54411F00FC33B3 /* icon-cast-connected.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC89B801B54411F00FC33B3 /* icon-cast-connected.png */; };
+		EAC89B871B54411F00FC33B3 /* icon-cast-connected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC89B811B54411F00FC33B3 /* icon-cast-connected@2x.png */; };
+		EAC89B881B54411F00FC33B3 /* icon-cast-connected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC89B821B54411F00FC33B3 /* icon-cast-connected@3x.png */; };
+		EAC89B891B54411F00FC33B3 /* icon-cast-identified.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC89B831B54411F00FC33B3 /* icon-cast-identified.png */; };
+		EAC89B8A1B54411F00FC33B3 /* icon-cast-identified@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC89B841B54411F00FC33B3 /* icon-cast-identified@2x.png */; };
+		EAC89B8B1B54411F00FC33B3 /* icon-cast-identified@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC89B851B54411F00FC33B3 /* icon-cast-identified@3x.png */; };
+		EAF2AE951B545B0B006A7C29 /* HelloTextStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF2AE941B545B0B006A7C29 /* HelloTextStoryboard.storyboard */; };
 		EF87401719CCA4A300B7FBA3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF87401619CCA4A300B7FBA3 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,8 +56,6 @@
 		CCC226C4188726D700EFA0B9 /* HelloTextGoogleCast-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloTextGoogleCast-Prefix.pch"; sourceTree = "<group>"; };
 		CCC226C5188726D700EFA0B9 /* HTGCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTGCAppDelegate.h; sourceTree = "<group>"; };
 		CCC226C6188726D700EFA0B9 /* HTGCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTGCAppDelegate.m; sourceTree = "<group>"; };
-		CCC226C9188726D700EFA0B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		CCC226CC188726D700EFA0B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		CCC226CE188726D700EFA0B9 /* HTGCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTGCViewController.h; sourceTree = "<group>"; };
 		CCC226CF188726D700EFA0B9 /* HTGCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTGCViewController.m; sourceTree = "<group>"; };
 		CCC226D1188726D700EFA0B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -65,16 +64,19 @@
 		CCC226E0188726D700EFA0B9 /* HelloTextGoogleCastTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HelloTextGoogleCastTests-Info.plist"; sourceTree = "<group>"; };
 		CCC226E2188726D700EFA0B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CCC226E4188726D700EFA0B9 /* HelloTextGoogleCastTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloTextGoogleCastTests.m; sourceTree = "<group>"; };
-		CCC226EE188726F200EFA0B9 /* icon-cast-connected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-connected.png"; sourceTree = "<group>"; };
-		CCC226EF188726F200EFA0B9 /* icon-cast-connected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-connected@2x.png"; sourceTree = "<group>"; };
-		CCC226F0188726F200EFA0B9 /* icon-cast-identified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-identified.png"; sourceTree = "<group>"; };
-		CCC226F1188726F200EFA0B9 /* icon-cast-identified@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-identified@2x.png"; sourceTree = "<group>"; };
 		CCC226F61887273200EFA0B9 /* HTGCTextChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTGCTextChannel.h; sourceTree = "<group>"; };
 		CCC226F71887273200EFA0B9 /* HTGCTextChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTGCTextChannel.m; sourceTree = "<group>"; };
 		CCC226F9188727CF00EFA0B9 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleCast.framework; path = "../../../../Downloads/GoogleCastFramework-2.0-Release/GoogleCast.framework"; sourceTree = "<group>"; };
 		CCE5BD491970953B00016BAB /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
 		CCE5BD4B1970954300016BAB /* MediaAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaAccessibility.framework; path = System/Library/Frameworks/MediaAccessibility.framework; sourceTree = SDKROOT; };
 		CCE5BD4D1970954C00016BAB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		EAC89B801B54411F00FC33B3 /* icon-cast-connected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-connected.png"; sourceTree = "<group>"; };
+		EAC89B811B54411F00FC33B3 /* icon-cast-connected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-connected@2x.png"; sourceTree = "<group>"; };
+		EAC89B821B54411F00FC33B3 /* icon-cast-connected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-connected@3x.png"; sourceTree = "<group>"; };
+		EAC89B831B54411F00FC33B3 /* icon-cast-identified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-identified.png"; sourceTree = "<group>"; };
+		EAC89B841B54411F00FC33B3 /* icon-cast-identified@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-identified@2x.png"; sourceTree = "<group>"; };
+		EAC89B851B54411F00FC33B3 /* icon-cast-identified@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cast-identified@3x.png"; sourceTree = "<group>"; };
+		EAF2AE941B545B0B006A7C29 /* HelloTextStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HelloTextStoryboard.storyboard; sourceTree = "<group>"; };
 		EF87401619CCA4A300B7FBA3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -147,8 +149,7 @@
 			children = (
 				CCC226C5188726D700EFA0B9 /* HTGCAppDelegate.h */,
 				CCC226C6188726D700EFA0B9 /* HTGCAppDelegate.m */,
-				CCC226C8188726D700EFA0B9 /* Main_iPhone.storyboard */,
-				CCC226CB188726D700EFA0B9 /* Main_iPad.storyboard */,
+				EAF2AE941B545B0B006A7C29 /* HelloTextStoryboard.storyboard */,
 				CCC226CE188726D700EFA0B9 /* HTGCViewController.h */,
 				CCC226CF188726D700EFA0B9 /* HTGCViewController.m */,
 				CCC226F61887273200EFA0B9 /* HTGCTextChannel.h */,
@@ -162,10 +163,12 @@
 		CCC226BD188726D700EFA0B9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCC226EE188726F200EFA0B9 /* icon-cast-connected.png */,
-				CCC226EF188726F200EFA0B9 /* icon-cast-connected@2x.png */,
-				CCC226F0188726F200EFA0B9 /* icon-cast-identified.png */,
-				CCC226F1188726F200EFA0B9 /* icon-cast-identified@2x.png */,
+				EAC89B801B54411F00FC33B3 /* icon-cast-connected.png */,
+				EAC89B811B54411F00FC33B3 /* icon-cast-connected@2x.png */,
+				EAC89B821B54411F00FC33B3 /* icon-cast-connected@3x.png */,
+				EAC89B831B54411F00FC33B3 /* icon-cast-identified.png */,
+				EAC89B841B54411F00FC33B3 /* icon-cast-identified@2x.png */,
+				EAC89B851B54411F00FC33B3 /* icon-cast-identified@3x.png */,
 				CCC226BE188726D700EFA0B9 /* HelloTextGoogleCast-Info.plist */,
 				CCC226BF188726D700EFA0B9 /* InfoPlist.strings */,
 				CCC226C2188726D700EFA0B9 /* main.m */,
@@ -269,13 +272,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCC226F4188726F200EFA0B9 /* icon-cast-identified.png in Resources */,
-				CCC226F3188726F200EFA0B9 /* icon-cast-connected@2x.png in Resources */,
-				CCC226F2188726F200EFA0B9 /* icon-cast-connected.png in Resources */,
-				CCC226F5188726F200EFA0B9 /* icon-cast-identified@2x.png in Resources */,
-				CCC226CD188726D700EFA0B9 /* Main_iPad.storyboard in Resources */,
+				EAC89B871B54411F00FC33B3 /* icon-cast-connected@2x.png in Resources */,
+				EAC89B861B54411F00FC33B3 /* icon-cast-connected.png in Resources */,
+				EAF2AE951B545B0B006A7C29 /* HelloTextStoryboard.storyboard in Resources */,
+				EAC89B8A1B54411F00FC33B3 /* icon-cast-identified@2x.png in Resources */,
+				EAC89B8B1B54411F00FC33B3 /* icon-cast-identified@3x.png in Resources */,
 				CCC226D2188726D700EFA0B9 /* Images.xcassets in Resources */,
-				CCC226CA188726D700EFA0B9 /* Main_iPhone.storyboard in Resources */,
+				EAC89B881B54411F00FC33B3 /* icon-cast-connected@3x.png in Resources */,
+				EAC89B891B54411F00FC33B3 /* icon-cast-identified.png in Resources */,
 				CCC226C1188726D700EFA0B9 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,22 +331,6 @@
 				CCC226C0188726D700EFA0B9 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		CCC226C8188726D700EFA0B9 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCC226C9188726D700EFA0B9 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		CCC226CB188726D700EFA0B9 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCC226CC188726D700EFA0B9 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		CCC226E1188726D700EFA0B9 /* InfoPlist.strings */ = {

@@ -67,7 +67,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
   if (self.selectedDevice == nil) {
     //Device Selection List
     UIActionSheet *sheet =
-        [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Connect to Device", nil)
+        [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Connect to device", nil)
                                     delegate:self
                            cancelButtonTitle:nil
                       destructiveButtonTitle:nil
@@ -83,12 +83,10 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
     [sheet showInView:_chromecastButton];
   } else {
     //Already connected information
-    NSString *str = [NSString stringWithFormat:NSLocalizedString(@"Casting to %@", nil),
-        self.selectedDevice.friendlyName];
     NSString *mediaTitle = [self.mediaInformation.metadata stringForKey:kGCKMetadataKeyTitle];
 
     UIActionSheet *sheet = [[UIActionSheet alloc] init];
-    sheet.title = str;
+    sheet.title = self.selectedDevice.friendlyName;
     sheet.delegate = self;
     if (mediaTitle != nil) {
       [sheet addButtonWithTitle:mediaTitle];
