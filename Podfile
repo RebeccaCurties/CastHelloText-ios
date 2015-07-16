@@ -1,7 +1,4 @@
-source 'https://github.com/CocoaPods/Specs.git'
-
-target 'HelloTextGoogleCast' do
-  pod 'google-cast-sdk', '~> 2.7.1'
-end
-
-
+# CastHelloText-ios
+platform :ios, '6.0'
+pod 'google-cast-sdk'
+link_with 'HelloTextGoogleCastObjectiveC', 'HelloTextGoogleCastSwift'

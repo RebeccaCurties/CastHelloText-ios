@@ -12,17 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import <UIKit/UIKit.h>
 #import <GoogleCast/GoogleCast.h>
+#import <Foundation/Foundation.h>
 
-@interface HTGCViewController : UIViewController<GCKDeviceScannerListener,
-                                                 GCKDeviceManagerDelegate,
-                                                 GCKMediaControlChannelDelegate,
-                                                 UIActionSheetDelegate>
-
-@property(nonatomic, strong) GCKDeviceScanner* deviceScanner;
-@property(nonatomic, strong) UIButton* chromecastButton;
-@property(nonatomic, strong) GCKDeviceManager* deviceManager;
-@property(nonatomic, readonly) GCKMediaInformation* mediaInformation;
+@interface HGCTextChannel : GCKCastChannel
 
 @end

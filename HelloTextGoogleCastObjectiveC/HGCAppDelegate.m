@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import "HTGCAppDelegate.h"
+#import "HGCAppDelegate.h"
 
-@implementation HTGCAppDelegate
+@implementation HGCAppDelegate
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

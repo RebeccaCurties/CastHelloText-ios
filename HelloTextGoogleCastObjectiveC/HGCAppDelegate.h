@@ -12,9 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import <GoogleCast/GoogleCast.h>
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface HTGCTextChannel : GCKCastChannel
+@interface HGCAppDelegate : UIResponder<UIApplicationDelegate>
+
+@property(strong, nonatomic) UIWindow *window;
 
 @end

@@ -12,25 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import "HTGCViewController.h"
-#import "HTGCTextChannel.h"
+#import "HGCViewController.h"
+#import "HGCTextChannel.h"
 
 static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to host your own receiver
 
-@interface HTGCViewController () {
-
-  UITextField *messageTextField;
+@interface HGCViewController () {
   UIImage *_btnImage;
   UIImage *_btnImageSelected;
+  IBOutlet UITextField *messageTextField;
 }
 
 @property GCKApplicationMetadata *applicationMetadata;
 @property GCKDevice *selectedDevice;
-@property HTGCTextChannel *textChannel;
+@property HGCTextChannel *textChannel;
 
 @end
 
-@implementation HTGCViewController
+@implementation HGCViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -224,7 +223,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
   }
 
   self.textChannel =
-      [[HTGCTextChannel alloc] initWithNamespace:@"urn:x-cast:com.google.cast.sample.helloworld"];
+      [[HGCTextChannel alloc] initWithNamespace:@"urn:x-cast:com.google.cast.sample.helloworld"];
   [self.deviceManager addChannel:self.textChannel];
 }
 

@@ -1,4 +1,4 @@
-// Copyright 2014 Google Inc. All Rights Reserved.
+// Copyright 2015 Google Inc. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,12 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import "HTGCTextChannel.h"
+import Foundation
 
-@implementation HTGCTextChannel
+// [START custom-channel-1]
+// Custom channel class
+class TextChannel : GCKCastChannel {
 
-- (void)didReceiveTextMessage:(NSString*)message {
-  NSLog(@"received message: %@", message);
+  override func didReceiveTextMessage(message: String!) {
+    println("Received message: \(message)")
+  }
 }
-
-@end
+// [END custom-channel-1]
