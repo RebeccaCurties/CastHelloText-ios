@@ -13,12 +13,20 @@
 // limitations under the License.
 
 #import "HGCAppDelegate.h"
+#import <GoogleCast/GCKLogger.h>
 
+@interface HGCAppDelegate () <GCKLoggerDelegate>
+
+@end
+
+// [START logging]
 @implementation HGCAppDelegate
 
+// [START_EXCLUDE]
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
+  [GCKLogger sharedInstance].delegate = self;
   return YES;
 }
 
@@ -43,5 +51,13 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+// [END_EXCLUDE]
+
+#pragma mark - GCKLoggerDelegate
+
+- (void) logFromFunction:(const char *)function message:(NSString *)message {
+  NSLog(@"%s - %@", function, message);
+}
 
 @end
+// [END logging]

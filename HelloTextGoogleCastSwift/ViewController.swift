@@ -52,8 +52,10 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView:self.chromecastButton)
 
     // [START device-scanner]
-    // Initialize device scanner
+    // Establish filter criteria
     let filterCriteria = GCKFilterCriteria(forAvailableApplicationWithID: kReceiverAppID)
+
+    //initialize device scanner
     deviceScanner = GCKDeviceScanner(filterCriteria: filterCriteria)
     if let deviceScanner = deviceScanner {
       deviceScanner.addListener(self)
@@ -70,7 +72,7 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
       //Show cast button
       chromecastButton.hidden = false;
 
-      if isConnected() {
+      if self.deviceManager?.applicationConnectionState == GCKConnectionState.Connected {
         chromecastButton.setImage(btnImageselected, forState: UIControlState.Normal);
       } else {
         chromecastButton.setImage(btnImage, forState: UIControlState.Normal);
@@ -78,22 +80,16 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
     }
   }
 
-  func isConnected() -> Bool {
-    if let manager = deviceManager {
-      return manager.applicationConnectionState == GCKConnectionState.Connected
-    } else {
-      return false
-    }
-  }
-
   func connectToDevice() {
     if (selectedDevice == nil) {
       return
     }
+    // [START device-selection]
     let identifier = NSBundle.mainBundle().infoDictionary?["CFBundleIdentifier"] as! String
     deviceManager = GCKDeviceManager(device: selectedDevice, clientPackageName: identifier)
     deviceManager!.delegate = self
     deviceManager!.connect()
+    // [END device-selection]
   }
 
   func deviceDisconnected() {
@@ -109,10 +105,13 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
 
   func chooseDevice(sender:AnyObject) {
     if (selectedDevice == nil) {
-      var sheet : UIActionSheet = UIActionSheet(title: "Connect to Device",
+      // [START showing-devices]
+      var sheet : UIActionSheet = // [START_EXCLUDE]
+        UIActionSheet(title: "Connect to Device",
         delegate: self,
         cancelButtonTitle: nil,
         destructiveButtonTitle: nil)
+      // [END_EXCLUDE]
 
       if let deviceScanner = deviceScanner {
         for device in deviceScanner.devices  {
@@ -120,11 +119,14 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
         }
       }
 
+      // [START_EXCLUDE]
       // Add the cancel button at the end so that indexes of the titles map to the array index.
       sheet.addButtonWithTitle(kCancelTitle);
       sheet.cancelButtonIndex = sheet.numberOfButtons - 1;
+      // [END_EXCLUDE]
 
       sheet.showInView(chromecastButton)
+      // [END showing-devices]
 
     } else {
       let friendlyName = "Casting to \(selectedDevice!.friendlyName)";
@@ -153,7 +155,7 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
   @IBAction func sendText(sender: AnyObject?) {
     if let messageField = self.messageTextField {
       println("Sending text \(messageField.text)")
-      if (!isConnected()) {
+      if (!(self.deviceManager?.applicationConnectionState == GCKConnectionState.Connected)) {
         var alert = UIAlertController(title: "Not Connected",
           message: "Please connect to a Cast device.",
           preferredStyle: UIAlertControllerStyle.Alert);
@@ -162,8 +164,15 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
         return;
       }
       // [START custom-channel-2]
-      //text channel initialized elsewhere
-      self.textChannel.sendTextMessage(messageField.text)
+      let textChannel = // [START_EXCLUDE]
+        self.textChannel
+        // [END_EXCLUDE]
+      // a String
+      let textMessage = // [START_EXCLUDE]
+        messageField.text
+      // [END_EXCLUDE]
+      
+      textChannel.sendTextMessage(textMessage)
       // [END custom-channel-2]
     }
   }
@@ -207,8 +216,10 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
   // MARK: GCKDeviceManagerDelegate
   func deviceManagerDidConnect(deviceManager: GCKDeviceManager!) {
     println("Connected.");
-
+    
+    // [START_EXCLUDE silent]
     updateButtonStates();
+    // [END_EXCLUDE silent]
     deviceManager.launchApplication(kReceiverAppID);
   }
   // [END launch-application]

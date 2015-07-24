@@ -50,13 +50,15 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
   self.navigationItem.rightBarButtonItem =
       [[UIBarButtonItem alloc] initWithCustomView:_chromecastButton];
 
+  // [START device-scanner]
   //Establish filter criteria
   GCKFilterCriteria *filterCriteria = [GCKFilterCriteria criteriaForAvailableApplicationWithID:kReceiverAppID];
-  
+
   //Initialize device scanner
   self.deviceScanner = [[GCKDeviceScanner alloc] initWithFilterCriteria:filterCriteria];
   [self.deviceScanner addListener:self];
   [self.deviceScanner startScan];
+  // [END device-scanner]
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,22 +69,28 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
 - (void)chooseDevice:(id)sender {
   //Choose device
   if (self.selectedDevice == nil) {
+    // [START showing-devices]
     //Device Selection List
     UIActionSheet *sheet =
+    // [START_EXCLUDE]
         [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Connect to device", nil)
                                     delegate:self
                            cancelButtonTitle:nil
                       destructiveButtonTitle:nil
                            otherButtonTitles:nil];
-
+    // [END_EXCLUDE]
+    
     for (GCKDevice *device in self.deviceScanner.devices) {
       [sheet addButtonWithTitle:device.friendlyName];
     }
 
+    // [START_EXCLUDE silent]
     [sheet addButtonWithTitle:NSLocalizedString(@"Cancel", nil)];
     sheet.cancelButtonIndex = sheet.numberOfButtons - 1;
-
+    // [END_EXCLUDE]
+    
     [sheet showInView:_chromecastButton];
+    // [END showing-devices]
   } else {
     //Already connected information
     NSString *mediaTitle = [self.mediaInformation.metadata stringForKey:kGCKMetadataKeyTitle];
@@ -102,20 +110,22 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
   }
 }
 
-- (BOOL)isDeviceConnected {
-  return self.deviceManager.connectionState == GCKConnectionStateConnected;
-}
-
 - (void)connectToDevice {
   if (self.selectedDevice == nil)
     return;
-
+  
+  // [START device-selection]
+  GCKDevice *selectedDevice = // [START_EXCLUDE]
+                              self.selectedDevice;
+                              // [END_EXCLUDE]
+  
   NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
   self.deviceManager =
-      [[GCKDeviceManager alloc] initWithDevice:self.selectedDevice
+      [[GCKDeviceManager alloc] initWithDevice:selectedDevice
                              clientPackageName:[info objectForKey:@"CFBundleIdentifier"]];
   self.deviceManager.delegate = self;
   [self.deviceManager connect];
+  // [END device-selection]
 }
 
 - (void)deviceDisconnected {
@@ -131,7 +141,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
     [_chromecastButton setImage:_btnImage forState:UIControlStateNormal];
     _chromecastButton.hidden = YES;
   } else {
-    if (self.deviceManager && self.isDeviceConnected) {
+    if (self.deviceManager && self.deviceManager.connectionState == GCKConnectionStateConnected) {
       //Enabled state for cast button
       [_chromecastButton setImage:_btnImageSelected forState:UIControlStateNormal];
       [_chromecastButton setTintColor:[UIColor blueColor]];
@@ -149,7 +159,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
   NSLog(@"sending text %@", [messageTextField text]);
 
   //Show alert if not connected
-  if (!self.deviceManager || !self.isDeviceConnected) {
+  if (!self.deviceManager || !(self.deviceManager.connectionState == GCKConnectionStateConnected)) {
     UIAlertView *alert =
         [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Not Connected", nil)
                                    message:NSLocalizedString(@"Please connect to Cast device", nil)
@@ -159,10 +169,20 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
     [alert show];
     return;
   }
-
-  [self.textChannel sendTextMessage:[messageTextField text]];
+  
+  // [START custom-channel-2]
+  HGCTextChannel *textChannel = // [START_EXCXLUDE]
+                                self.textChannel;
+                                // [END_EXCLUDE]
+  NSString *textMessage = // [START_EXCXLUDE]
+                                [messageTextField text];
+                                // [END_EXCLUDE]
+  
+  [textChannel sendTextMessage:textMessage];
+  // [END custom-channel-2]
 }
 
+// [START device-scanner-listener]
 #pragma mark - GCKDeviceScannerListener
 - (void)deviceDidComeOnline:(GCKDevice *)device {
   NSLog(@"device found!! %@", device.friendlyName);
@@ -172,6 +192,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
 - (void)deviceDidGoOffline:(GCKDevice *)device {
   [self updateButtonStates];
 }
+// [END device-scanner-listener]
 
 #pragma mark UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -202,6 +223,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
 
 #pragma mark - GCKDeviceManagerDelegate
 
+// [START launch-application]
 - (void)deviceManagerDidConnect:(GCKDeviceManager *)deviceManager {
   NSLog(@"connected!!");
 
@@ -210,6 +232,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
   //launch application after getting connectted
   [self.deviceManager launchApplication:kReceiverAppID];
 }
+// [END launch-application]
 
 - (void)deviceManager:(GCKDeviceManager *)deviceManager
     didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
