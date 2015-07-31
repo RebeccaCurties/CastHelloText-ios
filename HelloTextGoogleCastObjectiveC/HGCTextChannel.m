@@ -15,7 +15,7 @@
 #import "HGCTextChannel.h"
 
 // [START custom-channel-1]
-//Custom channel class that extends GCKCastChannel
+// This custom channel class extends GCKCastChannel.
 @implementation HGCTextChannel
 
 - (void)didReceiveTextMessage:(NSString*)message {

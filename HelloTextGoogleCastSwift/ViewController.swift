@@ -28,8 +28,8 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
   private lazy var btnImageselected:UIImage = {
     return UIImage(named: "icon-cast-connected.png")!
   }()
-  private lazy var chromecastButton:UIButton = {
-    //Create cast button
+  private lazy var googleCastButton:UIButton = {
+    // Create Cast button.
     var button:UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
     button.addTarget(self, action: "chooseDevice:", forControlEvents: UIControlEvents.TouchUpInside)
     button.frame = CGRectMake(0, 0, self.btnImage.size.width, self.btnImage.size.height)
@@ -49,13 +49,13 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
-    self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView:self.chromecastButton)
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView:self.googleCastButton)
 
     // [START device-scanner]
-    // Establish filter criteria
+    // Establish filter criteria.
     let filterCriteria = GCKFilterCriteria(forAvailableApplicationWithID: kReceiverAppID)
 
-    //initialize device scanner
+    // Initialize device scanner.
     deviceScanner = GCKDeviceScanner(filterCriteria: filterCriteria)
     if let deviceScanner = deviceScanner {
       deviceScanner.addListener(self)
@@ -66,16 +66,16 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
 
   func updateButtonStates() {
     if (deviceScanner != nil && deviceScanner!.devices.count == 0) {
-      //Hide the cast button
-      chromecastButton.hidden = true;
+      // Hide the Cast button.
+      googleCastButton.hidden = true;
     } else {
-      //Show cast button
-      chromecastButton.hidden = false;
+      // Show the Cast button.
+      googleCastButton.hidden = false;
 
       if self.deviceManager?.applicationConnectionState == GCKConnectionState.Connected {
-        chromecastButton.setImage(btnImageselected, forState: UIControlState.Normal);
+        googleCastButton.setImage(btnImageselected, forState: UIControlState.Normal);
       } else {
-        chromecastButton.setImage(btnImage, forState: UIControlState.Normal);
+        googleCastButton.setImage(btnImage, forState: UIControlState.Normal);
       }
     }
   }
@@ -98,7 +98,8 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
   }
 
   func showError(error: NSError) {
-    var alert = UIAlertController(title: "Error", message: error.description, preferredStyle: UIAlertControllerStyle.Alert);
+    var alert = UIAlertController(title: "Error", message: error.description,
+                         preferredStyle: UIAlertControllerStyle.Alert);
     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
     self.presentViewController(alert, animated: true, completion: nil)
   }
@@ -120,12 +121,12 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
       }
 
       // [START_EXCLUDE]
-      // Add the cancel button at the end so that indexes of the titles map to the array index.
+      // Add the cancel button at the end so the indices of the titles map to the array indices.
       sheet.addButtonWithTitle(kCancelTitle);
       sheet.cancelButtonIndex = sheet.numberOfButtons - 1;
       // [END_EXCLUDE]
 
-      sheet.showInView(chromecastButton)
+      sheet.showInView(googleCastButton)
       // [END showing-devices]
 
     } else {
@@ -147,7 +148,7 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
       sheet.destructiveButtonIndex = buttonIndex++;
       sheet.cancelButtonIndex = buttonIndex;
 
-      sheet.showInView(chromecastButton);
+      sheet.showInView(googleCastButton);
     }
   }
 
@@ -167,10 +168,10 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
       let textChannel = // [START_EXCLUDE]
         self.textChannel
         // [END_EXCLUDE]
-      // a String
-      let textMessage = // [START_EXCLUDE]
+      let textMessage = // [START_EXCLUDE silent]
         messageField.text
       // [END_EXCLUDE]
+      // a String
       
       textChannel.sendTextMessage(textMessage)
       // [END custom-channel-2]
@@ -219,7 +220,7 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
     
     // [START_EXCLUDE silent]
     updateButtonStates();
-    // [END_EXCLUDE silent]
+    // [END_EXCLUDE]
     deviceManager.launchApplication(kReceiverAppID);
   }
   // [END launch-application]

@@ -15,7 +15,8 @@
 #import "HGCViewController.h"
 #import "HGCTextChannel.h"
 
-static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to host your own receiver
+static NSString *const kReceiverAppID = @"794B7BBF"; // Update to your app id
+                                                     // to host your own receiver.
 
 @interface HGCViewController () {
   UIImage *_btnImage;
@@ -34,27 +35,28 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  //Create cast button
+  // Create cast button.
   _btnImage = [UIImage imageNamed:@"icon-cast-identified.png"];
   _btnImageSelected = [UIImage imageNamed:@"icon-cast-connected.png"];
 
-  _chromecastButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  [_chromecastButton addTarget:self
+  _googleCastButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  [_googleCastButton addTarget:self
                         action:@selector(chooseDevice:)
               forControlEvents:UIControlEventTouchDown];
-  _chromecastButton.frame = CGRectMake(0, 0, _btnImage.size.width, _btnImage.size.height);
-  [_chromecastButton setImage:nil forState:UIControlStateNormal];
-  _chromecastButton.hidden = YES;
+  _googleCastButton.frame = CGRectMake(0, 0, _btnImage.size.width, _btnImage.size.height);
+  [_googleCastButton setImage:nil forState:UIControlStateNormal];
+  _googleCastButton.hidden = YES;
 
-  //add cast button to navigation bar
+  // Add cast button to navigation bar.
   self.navigationItem.rightBarButtonItem =
-      [[UIBarButtonItem alloc] initWithCustomView:_chromecastButton];
+      [[UIBarButtonItem alloc] initWithCustomView:_googleCastButton];
 
   // [START device-scanner]
-  //Establish filter criteria
-  GCKFilterCriteria *filterCriteria = [GCKFilterCriteria criteriaForAvailableApplicationWithID:kReceiverAppID];
+  // Establish filter criteria.
+  GCKFilterCriteria *filterCriteria =
+      [GCKFilterCriteria criteriaForAvailableApplicationWithID:kReceiverAppID];
 
-  //Initialize device scanner
+  // Initialize device scanner.
   self.deviceScanner = [[GCKDeviceScanner alloc] initWithFilterCriteria:filterCriteria];
   [self.deviceScanner addListener:self];
   [self.deviceScanner startScan];
@@ -67,7 +69,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
 }
 
 - (void)chooseDevice:(id)sender {
-  //Choose device
+  // Choose device.
   if (self.selectedDevice == nil) {
     // [START showing-devices]
     //Device Selection List
@@ -89,10 +91,10 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
     sheet.cancelButtonIndex = sheet.numberOfButtons - 1;
     // [END_EXCLUDE]
     
-    [sheet showInView:_chromecastButton];
+    [sheet showInView:_googleCastButton];
     // [END showing-devices]
   } else {
-    //Already connected information
+    // Show already connected information.
     NSString *mediaTitle = [self.mediaInformation.metadata stringForKey:kGCKMetadataKeyTitle];
 
     UIActionSheet *sheet = [[UIActionSheet alloc] init];
@@ -106,7 +108,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
     sheet.destructiveButtonIndex = (mediaTitle != nil ? 1 : 0);
     sheet.cancelButtonIndex = (mediaTitle != nil ? 2 : 1);
 
-    [sheet showInView:_chromecastButton];
+    [sheet showInView:_googleCastButton];
   }
 }
 
@@ -137,20 +139,20 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
 
 - (void)updateButtonStates {
   if (self.deviceScanner.devices.count == 0) {
-    //Hide the cast button
-    [_chromecastButton setImage:_btnImage forState:UIControlStateNormal];
-    _chromecastButton.hidden = YES;
+    // Hide the Cast button.
+    [_googleCastButton setImage:_btnImage forState:UIControlStateNormal];
+    _googleCastButton.hidden = YES;
   } else {
     if (self.deviceManager && self.deviceManager.connectionState == GCKConnectionStateConnected) {
-      //Enabled state for cast button
-      [_chromecastButton setImage:_btnImageSelected forState:UIControlStateNormal];
-      [_chromecastButton setTintColor:[UIColor blueColor]];
-      _chromecastButton.hidden = NO;
+      // Enable Cast button state.
+      [_googleCastButton setImage:_btnImageSelected forState:UIControlStateNormal];
+      [_googleCastButton setTintColor:[UIColor blueColor]];
+      _googleCastButton.hidden = NO;
     } else {
-      //Disabled state for cast button
-      [_chromecastButton setImage:_btnImage forState:UIControlStateNormal];
-      [_chromecastButton setTintColor:[UIColor grayColor]];
-      _chromecastButton.hidden = NO;
+      // Disable Cast button state.
+      [_googleCastButton setImage:_btnImage forState:UIControlStateNormal];
+      [_googleCastButton setTintColor:[UIColor grayColor]];
+      _googleCastButton.hidden = NO;
     }
   }
 
@@ -158,7 +160,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
 - (IBAction)sendText:(id)sender {
   NSLog(@"sending text %@", [messageTextField text]);
 
-  //Show alert if not connected
+  // Show alert if not connected.
   if (!self.deviceManager || !(self.deviceManager.connectionState == GCKConnectionStateConnected)) {
     UIAlertView *alert =
         [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Not Connected", nil)
@@ -229,7 +231,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; //Update to your app id to 
 
   [self updateButtonStates];
 
-  //launch application after getting connectted
+  // Launch application after getting connected.
   [self.deviceManager launchApplication:kReceiverAppID];
 }
 // [END launch-application]
