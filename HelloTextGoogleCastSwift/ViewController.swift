@@ -28,14 +28,6 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
   private lazy var btnImageselected:UIImage = {
     return UIImage(named: "icon-cast-connected.png")!
   }()
-  private lazy var googleCastButton:UIButton = {
-    // Create Cast button.
-    var button:UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
-    button.addTarget(self, action: "chooseDevice:", forControlEvents: UIControlEvents.TouchUpInside)
-    button.frame = CGRectMake(0, 0, self.btnImage.size.width, self.btnImage.size.height)
-    button.hidden = true;
-    return button;
-  }()
   private lazy var textChannel:TextChannel = {
     return TextChannel(namespace: "urn:x-cast:com.google.cast.sample.helloworld")
   }()
@@ -44,12 +36,13 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
   private var mediaInformation:GCKMediaInformation?
   private var selectedDevice:GCKDevice?
   @IBOutlet var messageTextField: UITextField!
-  
+  @IBOutlet var googleCastButton: UIBarButtonItem!
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
 
-    self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView:self.googleCastButton)
+    // Initially hide the Cast button.
+    navigationItem.rightBarButtonItems = []
 
     // [START device-scanner]
     // Establish filter criteria.
@@ -65,18 +58,19 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
   }
 
   func updateButtonStates() {
-    if (deviceScanner != nil && deviceScanner!.devices.count == 0) {
-      // Hide the Cast button.
-      googleCastButton.hidden = true;
-    } else {
+    if (deviceScanner!.devices.count > 0) {
       // Show the Cast button.
-      googleCastButton.hidden = false;
-
-      if self.deviceManager?.applicationConnectionState == GCKConnectionState.Connected {
-        googleCastButton.setImage(btnImageselected, forState: UIControlState.Normal);
+      navigationItem.rightBarButtonItems = [googleCastButton!]
+      if (deviceManager != nil && deviceManager?.connectionState == GCKConnectionState.Connected) {
+        // Show the Cast button in the enabled state.
+        googleCastButton!.tintColor = UIColor.blueColor()
       } else {
-        googleCastButton.setImage(btnImage, forState: UIControlState.Normal);
+        // Show the Cast button in the disabled state.
+        googleCastButton!.tintColor = UIColor.grayColor()
       }
+    } else{
+      // Don't show Cast button.
+      navigationItem.rightBarButtonItems = []
     }
   }
 
@@ -126,7 +120,7 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
       sheet.cancelButtonIndex = sheet.numberOfButtons - 1;
       // [END_EXCLUDE]
 
-      sheet.showInView(googleCastButton)
+      sheet.showInView(self.view)
       // [END showing-devices]
 
     } else {
@@ -148,7 +142,7 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
       sheet.destructiveButtonIndex = buttonIndex++;
       sheet.cancelButtonIndex = buttonIndex;
 
-      sheet.showInView(googleCastButton);
+      sheet.showInView(self.view);
     }
   }
 
@@ -156,7 +150,7 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
   @IBAction func sendText(sender: AnyObject?) {
     if let messageField = self.messageTextField {
       println("Sending text \(messageField.text)")
-      if (!(self.deviceManager?.applicationConnectionState == GCKConnectionState.Connected)) {
+      if (!(self.deviceManager?.connectionState == GCKConnectionState.Connected)) {
         var alert = UIAlertController(title: "Not Connected",
           message: "Please connect to a Cast device.",
           preferredStyle: UIAlertControllerStyle.Alert);

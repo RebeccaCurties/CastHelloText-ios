@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Text Google Cast" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vo3-16-GQf">
-                                <rect key="frame" x="175.5" y="154" width="250" height="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello Text Google Cast" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vo3-16-GQf">
+                                <rect key="frame" x="176" y="154" width="250" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -49,9 +49,12 @@
                             <constraint firstItem="Vo3-16-GQf" firstAttribute="top" secondItem="La2-k2-01z" secondAttribute="bottom" constant="90" id="apK-MA-6Oe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Wm3-OL-KIg"/>
+                    <navigationItem key="navigationItem" id="Wm3-OL-KIg">
+                        <barButtonItem key="rightBarButtonItem" image="icon-cast-identified.png" id="24x-d4-OVH"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="messageTextField" destination="d0R-9b-6tx" id="Ae7-e1-xHm"/>
+                        <outlet property="googleCastButton" destination="24x-d4-OVH" id="g9p-nj-aFv"/>
+                        <outlet property="messageTextField" destination="d0R-9b-6tx" id="eLa-ag-FDY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ii6-UR-ofw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -75,4 +78,7 @@
             <point key="canvasLocation" x="-714" y="210"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-cast-identified.png" width="24" height="24"/>
+    </resources>
 </document>
