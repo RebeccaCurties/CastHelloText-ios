@@ -69,7 +69,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; // Update to your app id
   // Dispose of any resources that can be recreated.
 }
 
-- (void)chooseDevice:(id)sender {
+- (IBAction)chooseDevice:(id)sender {
   // Choose device.
   if (self.selectedDevice == nil) {
     // [START showing-devices]

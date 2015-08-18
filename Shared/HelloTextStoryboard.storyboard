@@ -50,7 +50,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wm3-OL-KIg">
-                        <barButtonItem key="rightBarButtonItem" image="icon-cast-identified.png" id="24x-d4-OVH"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon-cast-identified.png" id="24x-d4-OVH">
+                            <connections>
+                                <action selector="chooseDevice:" destination="FlN-t9-lqL" id="t9I-Nf-mUD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="googleCastButton" destination="24x-d4-OVH" id="g9p-nj-aFv"/>
