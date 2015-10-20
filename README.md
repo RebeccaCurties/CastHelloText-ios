@@ -15,6 +15,13 @@ This Hello Text demo application shows how an iOS sender application can send an
 * Get a Chromecast device and get it set up for development: https://developers.google.com/cast/docs/developers#Get_started
 * Setup the project dependencies in xCode
 * For each target you want to build, under "Build Settings", add "-ObjC" to "Other Linker Flags"
+* For each target you want to build, under "Build Phases", add the following entries to "Link Binary With Libraries":
+  * libc++.dylib
+  * Accelerate.framework
+  * AudioToolbox.framework
+  * AVFoundation.framework
+  * CoreBluetooth.framework
+  * MediaPlayer.framework
 
 ## Documentation
 Google Cast iOS Sender Overview:  [https://developers.google.com/cast/docs/ios_sender](https://developers.google.com/cast/docs/ios_sender "Google Cast iOS Sender Overview")
