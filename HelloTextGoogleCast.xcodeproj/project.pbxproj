@@ -13,6 +13,7 @@
 		CCE5BD4A1970953B00016BAB /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD491970953B00016BAB /* GoogleCast.framework */; };
 		CCE5BD4C1970954300016BAB /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD4B1970954300016BAB /* MediaAccessibility.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CCE5BD4E1970954C00016BAB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD4D1970954C00016BAB /* CoreText.framework */; };
+		EA5A1A651BD5BED0005A94AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA5A1A641BD5BED0005A94AA /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		EAE9A8D91B5854320027C406 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF87401619CCA4A300B7FBA3 /* SystemConfiguration.framework */; };
 		EAE9A8DA1B5854320027C406 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD4D1970954C00016BAB /* CoreText.framework */; };
 		EAE9A8DB1B5854320027C406 /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE5BD4B1970954300016BAB /* MediaAccessibility.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -59,6 +60,7 @@
 		CCE5BD491970953B00016BAB /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
 		CCE5BD4B1970954300016BAB /* MediaAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaAccessibility.framework; path = System/Library/Frameworks/MediaAccessibility.framework; sourceTree = SDKROOT; };
 		CCE5BD4D1970954C00016BAB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		EA5A1A641BD5BED0005A94AA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAE9A8E41B5854320027C406 /* HelloTextGoogleCastSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloTextGoogleCastSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE9A8EB1B58549E0027C406 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = Shared/en.lproj; sourceTree = "<group>"; };
 		EAE9A8ED1B58549E0027C406 /* HelloTextStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HelloTextStoryboard.storyboard; path = Shared/HelloTextStoryboard.storyboard; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				EAE9A8F21B58549E0027C406 /* icon-cast-identified@2x.png */,
 				EAE9A8F31B58549E0027C406 /* icon-cast-identified@3x.png */,
 				EAE9A8F41B58549E0027C406 /* Images.xcassets */,
+				EA5A1A641BD5BED0005A94AA /* LaunchScreen.storyboard */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = HTGC;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Google Inc";
 			};
@@ -273,6 +277,7 @@
 				EAE9A9011B58549E0027C406 /* icon-cast-identified.png in Resources */,
 				EAE9A9071B58549E0027C406 /* Images.xcassets in Resources */,
 				EAE9A9051B58549E0027C406 /* icon-cast-identified@3x.png in Resources */,
+				EA5A1A651BD5BED0005A94AA /* LaunchScreen.storyboard in Resources */,
 				EAE9A8F71B58549E0027C406 /* en.lproj in Resources */,
 				EAE9A8F91B58549E0027C406 /* HelloTextStoryboard.storyboard in Resources */,
 				EAE9A9031B58549E0027C406 /* icon-cast-identified@2x.png in Resources */,
@@ -405,6 +410,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
@@ -426,6 +432,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
@@ -449,6 +456,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
@@ -476,6 +484,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
