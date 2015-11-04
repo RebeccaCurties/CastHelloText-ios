@@ -122,11 +122,9 @@ static NSString *const kReceiverAppID = @"794B7BBF"; // Update to your app id
   GCKDevice *selectedDevice = // [START_EXCLUDE]
                               _selectedDevice;
                               // [END_EXCLUDE]
-
-  NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
   self.deviceManager =
-      [[GCKDeviceManager alloc] initWithDevice:selectedDevice
-                             clientPackageName:[info objectForKey:@"CFBundleIdentifier"]];
+  [[GCKDeviceManager alloc] initWithDevice:_selectedDevice
+                         clientPackageName:[NSBundle mainBundle].bundleIdentifier];
   self.deviceManager.delegate = self;
   [_deviceManager connect];
   // [END device-selection]

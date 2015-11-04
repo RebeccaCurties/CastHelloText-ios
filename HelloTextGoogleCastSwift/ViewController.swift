@@ -79,7 +79,7 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
       return
     }
     // [START device-selection]
-    let identifier = NSBundle.mainBundle().infoDictionary?["CFBundleIdentifier"] as! String
+    let identifier = NSBundle.mainBundle().bundleIdentifier
     deviceManager = GCKDeviceManager(device: selectedDevice, clientPackageName: identifier)
     deviceManager!.delegate = self
     deviceManager!.connect()
