@@ -123,7 +123,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; // Update to your app id
                               _selectedDevice;
                               // [END_EXCLUDE]
   self.deviceManager =
-  [[GCKDeviceManager alloc] initWithDevice:_selectedDevice
+  [[GCKDeviceManager alloc] initWithDevice:selectedDevice
                          clientPackageName:[NSBundle mainBundle].bundleIdentifier];
   self.deviceManager.delegate = self;
   [_deviceManager connect];
