@@ -53,6 +53,7 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
     if let deviceScanner = deviceScanner {
       deviceScanner.addListener(self)
       deviceScanner.startScan()
+      deviceScanner.passiveScan = true
     }
     // [END device-scanner]
   }
@@ -102,18 +103,17 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
     if (selectedDevice == nil) {
       // [START showing-devices]
       let sheet : UIActionSheet = // [START_EXCLUDE]
-        UIActionSheet(title: "Connect to Device",
+      UIActionSheet(title: "Connect to Device",
         delegate: self,
         cancelButtonTitle: nil,
         destructiveButtonTitle: nil)
       // [END_EXCLUDE]
-
       if let deviceScanner = deviceScanner {
+        deviceScanner.passiveScan = false
         for device in deviceScanner.devices  {
           sheet.addButtonWithTitle(device.friendlyName)
         }
       }
-
       // [START_EXCLUDE]
       // Add the cancel button at the end so the indices of the titles map to the array indices.
       sheet.addButtonWithTitle(kCancelTitle);
@@ -188,22 +188,23 @@ class ViewController: UIViewController, GCKDeviceScannerListener, GCKDeviceManag
 
   // MARK: UIActionSheetDelegate
   func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
-    if (buttonIndex == actionSheet.cancelButtonIndex) {
-      return;
-    } else if (selectedDevice == nil) {
-      if let deviceScanner = deviceScanner {
+    if let deviceScanner = deviceScanner {
+      deviceScanner.passiveScan = true
+      if (buttonIndex == actionSheet.cancelButtonIndex) {
+        return;
+      } else if (selectedDevice == nil) {
         if (buttonIndex < deviceScanner.devices.count) {
           selectedDevice = deviceScanner.devices[buttonIndex] as? GCKDevice;
           print("Selected device: \(selectedDevice!.friendlyName)");
           connectToDevice();
         }
+      } else if (actionSheet.buttonTitleAtIndex(buttonIndex) == kDisconnectTitle) {
+        // Disconnect button.
+        deviceManager!.leaveApplication();
+        deviceManager!.disconnect();
+        deviceDisconnected();
+        updateButtonStates();
       }
-    } else if (actionSheet.buttonTitleAtIndex(buttonIndex) == kDisconnectTitle) {
-      // Disconnect button.
-      deviceManager!.leaveApplication();
-      deviceManager!.disconnect();
-      deviceDisconnected();
-      updateButtonStates();
     }
   }
 

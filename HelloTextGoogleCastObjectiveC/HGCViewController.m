@@ -61,6 +61,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; // Update to your app id
   self.deviceScanner = [[GCKDeviceScanner alloc] initWithFilterCriteria:filterCriteria];
   [_deviceScanner addListener:self];
   [_deviceScanner startScan];
+  [_deviceScanner setPassiveScan:YES];
   // [END device-scanner]
 }
 
@@ -73,6 +74,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; // Update to your app id
   // Choose device.
   if (self.selectedDevice == nil) {
     // [START showing-devices]
+    [_deviceScanner setPassiveScan:NO];
     //Device Selection List
     UIActionSheet *sheet =
     // [START_EXCLUDE]
@@ -193,6 +195,7 @@ static NSString *const kReceiverAppID = @"794B7BBF"; // Update to your app id
 
 #pragma mark UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+  [_deviceScanner setPassiveScan:YES];
   if (_selectedDevice == nil) {
     if (buttonIndex < self.deviceScanner.devices.count) {
       self.selectedDevice = _deviceScanner.devices[buttonIndex];
