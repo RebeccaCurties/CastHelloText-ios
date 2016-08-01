@@ -22,14 +22,12 @@
 // [START logging]
 @implementation HGCAppDelegate
 
-// [START_EXCLUDE]
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
   [GCKLogger sharedInstance].delegate = self;
   return YES;
 }
-// [END_EXCLUDE]
 
 #pragma mark - GCKLoggerDelegate
 
