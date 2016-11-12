@@ -13,7 +13,7 @@ This Hello Text demo application shows how an iOS sender application can send an
 
 ## Setup Instructions (Without CocoaPods)
 * Get a Chromecast device and get it set up for development: https://developers.google.com/cast/docs/developers#Get_started
-* Setup the project dependencies in xCode
+* Setup the project dependencies in Xcode
 * For each target you want to build, under "Build Settings", add "-ObjC" to "Other Linker Flags"
 * For each target you want to build, under "Build Phases", add the following entries to "Link Binary With Libraries":
   * libc++.dylib
