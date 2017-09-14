@@ -18,7 +18,7 @@ import Foundation
 // This custom channel class extends GCKCastChannel.
 class TextChannel : GCKCastChannel {
 
-  override func didReceiveTextMessage(message: String!) {
+  override func didReceiveTextMessage(_ message: String!) {
     print("Received message: \(message)")
   }
 }
